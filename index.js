@@ -1,8 +1,6 @@
-import puppeteer from 'puppeteer';
-// const {ATBDataParser} = require('./atb_data_parsing');
-import {ATBDataParser} from './atb_data_parsing.js';
+import {ParsersHandler} from './parsers_handler.js';
 
-const atbParser = new ATBDataParser();
-atbParser.atbDataParse();
+const parser = new ParsersHandler();
+parser.parseSites();
 
 
