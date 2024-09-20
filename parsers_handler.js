@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import {ATBDataParser} from './atb_data_parsing.js';
+import {ForaDataParser} from './fora_data_parsing.js';
 
 export class ParsersHandler{
     #browser = null;
@@ -24,8 +25,9 @@ export class ParsersHandler{
         await this.#initializeBrowser()
         let parsedData = {};
         const atbParser = new ATBDataParser();
-
+        const foraParser = new ForaDataParser();
         parsedData['atb'] = await atbParser.parse(this.#browser);
+        parsedData['fora'] = await foraParser.parse(this.#browser);
         console.log(parsedData);
         this.#browser.close();
     }
