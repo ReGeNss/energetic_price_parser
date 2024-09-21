@@ -28,12 +28,10 @@ export class ParsersHandler{
         const atbParser = new ATBDataParser();
         const foraParser = new ForaDataParser();
         const silpoParser = new SilpoDataParser();
-        // parsedData['atb'] = await atbParser.parse(this.#browser);
-        // parsedData['fora'] = await foraParser.parse(this.#browser);
+        parsedData['atb'] = await atbParser.parse(this.#browser);
+        parsedData['fora'] = await foraParser.parse(this.#browser);
         parsedData['silpo'] = await silpoParser.parse(this.#browser);
-        console.log(parsedData.silpo.length);
-        var data = parsedData.silpo.at(100);
-        console.log(data);
+        console.log(parsedData);
         this.#browser.close();
     }
 
