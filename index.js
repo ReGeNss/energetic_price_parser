@@ -3,5 +3,6 @@ import { MongoDataBase } from './database_services/database.js';
 
 const parser = new ParsersHandler();
 const parsedData = await parser.parseSites();
-// new MongoDataBase(); 
+console.log(parsedData);
+new MongoDataBase();
 
