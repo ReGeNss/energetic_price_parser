@@ -17,8 +17,8 @@ export class ParsersHandler{
         return await puppeteer.launch({
             headless: true,
             args: ['--no-sandbox', '--disable-setuid-sandbox'], 
-            // executablePath: '/usr/bin/chromium-browse' // Укажите путь к вашему браузеру // C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
+            executablePath: '/usr/bin/chromium-browse'
+            // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
         });
     }
 
