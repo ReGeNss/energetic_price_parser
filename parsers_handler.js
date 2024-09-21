@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 import {ATBDataParser} from './parsers/atb_data_parsing.js';
 import {ForaDataParser} from './parsers/fora_data_parsing.js';
 import {SilpoDataParser} from "./parsers/silpo_data_parsing.js";
@@ -15,9 +15,10 @@ export class ParsersHandler{
 
     #createBrowser = async () => {
         return await puppeteer.launch({
-            headless: false,
-            defaultViewport: null,
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe' // Укажите путь к вашему браузеру
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox'], 
+            // executablePath: '/usr/bin/chromium-browse' // Укажите путь к вашему браузеру // C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe
+            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
         });
     }
 
