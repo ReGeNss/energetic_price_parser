@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
-import {ATBDataParser} from './atb_data_parsing.js';
-import {ForaDataParser} from './fora_data_parsing.js';
+import {ATBDataParser} from './parsers/atb_data_parsing.js';
+import {ForaDataParser} from './parsers/fora_data_parsing.js';
+import {SilpoDataParser} from "./parsers/silpo_data_parsing.js";
 
 export class ParsersHandler{
     #browser = null;
@@ -26,9 +27,13 @@ export class ParsersHandler{
         let parsedData = {};
         const atbParser = new ATBDataParser();
         const foraParser = new ForaDataParser();
-        parsedData['atb'] = await atbParser.parse(this.#browser);
-        parsedData['fora'] = await foraParser.parse(this.#browser);
-        console.log(parsedData);
+        const silpoParser = new SilpoDataParser();
+        // parsedData['atb'] = await atbParser.parse(this.#browser);
+        // parsedData['fora'] = await foraParser.parse(this.#browser);
+        parsedData['silpo'] = await silpoParser.parse(this.#browser);
+        console.log(parsedData.silpo.length);
+        var data = parsedData.silpo.at(100);
+        console.log(data);
         this.#browser.close();
     }
 
