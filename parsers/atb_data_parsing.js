@@ -1,6 +1,3 @@
-import puppeteer from 'puppeteer';
-
-
 export class ATBDataParser{
     #siteUrl = 'https://www.atbmarket.com/catalog/364-yenergetichni';
 

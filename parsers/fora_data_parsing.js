@@ -1,6 +1,3 @@
-import puppeteer from 'puppeteer';
-
-
 export class ForaDataParser{
     #siteUrl = 'https://fora.ua/category/energetychni-napoi-2486';
 
