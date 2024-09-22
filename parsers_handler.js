@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer-core';
+import puppeteer from 'puppeteer';
 import {ATBDataParser} from './parsers/atb_data_parsing.js';
 import {ForaDataParser} from './parsers/fora_data_parsing.js';
 import {SilpoDataParser} from "./parsers/silpo_data_parsing.js";
@@ -16,8 +16,8 @@ export class ParsersHandler{
     #createBrowser = async () => {
         return await puppeteer.launch({
             headless: true,
-            args: ['--no-sandbox', '--disable-setuid-sandbox'], 
-            executablePath: '/usr/bin/chromium-browse'
+            args: ['--window-size=1920,1080','--no-sandbox', '--disable-setuid-sandbox','--disable-setuid-sandbox'],
+            executablePath: '/home/.cache/puppeteer/chrome/linux-129.0.6668.58/chrome-linux64/chrome'
             // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
         });
     }
@@ -35,7 +35,6 @@ export class ParsersHandler{
         parsedData['fora'] = await foraParser.parse(this.#browser);
         parsedData['silpo'] = await silpoParser.parse(this.#browser);
         parsedData['trash'] = await thrashParser.parse(this.#browser);
-        console.log(parsedData);
         this.#browser.close();
         return parsedData;
     }

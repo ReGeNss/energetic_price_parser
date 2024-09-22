@@ -5,4 +5,3 @@ const parser = new ParsersHandler();
 const parsedData = await parser.parseSites();
 console.log(parsedData);
 new MongoDataBase();
-

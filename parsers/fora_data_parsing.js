@@ -4,12 +4,10 @@ export class ForaDataParser{
     parse = async (browser) => {
         const page = await browser.newPage();
         await page.goto(this.#siteUrl);
+        await sleep(2000);
         const parsedData = await page.evaluate(() => {
             const products = [];
             let elements = document.querySelectorAll('.product-list-item');
-            // for(let e of elements){
-            //     return e.innerHTML;
-            // }
             for(let e of elements){
                 let pricesBloc = e.querySelector('.product-price-container');
                 if( pricesBloc == null){
@@ -40,4 +38,8 @@ export class ForaDataParser{
         return parsedData;
     }
 
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
