@@ -17,8 +17,8 @@ export class ParsersHandler{
         return await puppeteer.launch({
             headless: true,
             args: ['--window-size=1920,1080','--no-sandbox', '--disable-setuid-sandbox','--disable-setuid-sandbox'],
-            executablePath: '/home/.cache/puppeteer/chrome/linux-129.0.6668.58/chrome-linux64/chrome'
-            // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
+            // executablePath: '/home/.cache/puppeteer/chrome/linux-129.0.6668.58/chrome-linux64/chrome'
+            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\Chrome.exe',
         });
     }
 
